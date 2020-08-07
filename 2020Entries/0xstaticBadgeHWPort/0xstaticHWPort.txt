@@ -1,0 +1,118 @@
+Name/Handle:
+
+Ben Gardiner / 0xstatic
+
+
+Email address:
+
+
+
+Name of hardware:
+
+Badge Hardware Port
+
+
+Category you are entering:
+
+Just for Fun
+
+
+Description/Summary:
+
+This is a dead-bug style hardware modification of a badge to make it run unmodified firmware of another badge. I changed the DC 503 Trail badge and ‘converted it’ by re-routing pins, adding LEDs and adding a @mediumrehr’s oxvox to be able to run the firmware of the Northsec 2018 badge.
+
+
+This badge:
+
+Will be ‘turned into’ this badge:
+
+
+General Intent:
+
+To have fun doing something ‘backwards’ and to redeem myself for past dumbness.
+
+
+What have you pwned so far:
+
+No pwning. It is a decoration now on my wall. It sits next to the badge that it is ‘emulating’: The Northsec 2018 badge (which I’ve modified to run two extra long lengths of WS2812s as bench backlight, but we’re not talking about that badge mod here).
+
+
+Action shot:
+
+
+
+
+Target Badge (lower), Ported Badge (upper). Same FW (both).
+
+
+Construction methods:
+
+The target firmware in the NSEC badge used momentary buttons for up, down, left, right, enter, back; WS2812 LED strings around the outside and an SPI OLED display. The badges both used the same BMD nRF52 module.
+
+
+The goal was to change the 503 badge to be compatible with unchanged NSEC firmware (initially to fake a pass into the nsec conference). The buttons are on different pins, the displays were incompatible, there were no WS2812 LEDs.
+
+
+
+I swapped the 503 I2C display for an SPI display to match the nsec badge. To make the pinout of the board better match the GND and VCC positions I flipped the PCB over; this also made the addition of the ox vox simpler.
+
+
+
+My friend @mediumrehr had designed a cool add-on board to the 503 trail. The Ox Vox. Flipping the badge over let me put the 503 buttons on the backside out of the way of the Ox Vox add on. I glue WS2812s onto the Ox Vox to meet the nsec firmware requirement making sure to put one set on the eyes of the ox.
+
+
+
+Flipping it over also let me center the focus on the re-work needed: deadbug style. I removed the BMD module with hot air, flipped it on its back and glued it to the PCB of the badge hanging down below the position of the ox vox addon so the bodge job could shine.
+
+
+
+I re-wired the pinout from the BMD module pads to the PCB footprint for power, buttons. I had to pick up an old pushbutton trace for the LEDs and joined that onto the Ox Vox extension. Finally I needed to add a few flying lead bodges up to the SPI OLED display that I added.
+
+
+
+The OLED displays I could source all had blue solder mask , so I reapplied black to the module to have it match the 503 badge mask color. 
+
+
+
+At this point I could flash the unmodified Nsec 2018 firmware and it is fully functional. Finally, in its resting place on the wall I replaced the CR2023 battery holder with a small USB 3.3V power supply.
+
+
+What did you have to learn or teach yourself:
+
+In this build I tried and learned doing dead bug with standard-blue bodge wire. I also experimented with trying to smooth-apply the black solder resist to color the replacement OLED display.
+
+
+Usage:
+
+You can use every feature of the Nsec 2018 badge. It has a button and OLED menu interface. You can select various LED modes. There is a bluetooth command interface. But all of this is by virtue of the fact that we can now run the actually NSec 2018 badge firmware!
+
+
+Specs:
+
+7x WS2812 added
+
+1x oxvox added
+
+1x 1.54 inch SSD1309 OLED Display Module 128x64 added
+
+42” of blue bodge wire added
+
+0x BMD-300 (nRF52832) added
+
+
+
+Links to related media:
+
+
+A video of the blinkys https://photos.app.goo.gl/CDGYr3Cet2U6s9zg7
+
+
+
+Is there anything else you need or want to tell us:
+
+Thanks for running this contest in DC 28 SM
+
+
+Do we need to keep your entry 'secret':
+
+No.

@@ -1,0 +1,133 @@
+Name/Handle: I Am Brada´n Lane
+
+Email address: 
+
+Twitter: @bradanlane
+
+Instagram: @bradanlane
+
+GitLab: https://gitlab.com/bradanlane
+
+eChallengeCoin: https://aosc.cc
+
+ 
+
+Name of hardware: DIY Electronics Maker Bench (yeah, I just made that up)
+
+ 
+
+Category you are entering: DIY Maker Tools for Badges and Other Cool Stuff
+
+ 
+
+Description/Summary:
+
+I started making electronics projects in mid-2019 on a shoe string budget. I also plunged head first and blind folded into SMT PCB design. I quickly realized I wanted tools to make my projects possible and - if possible - as easy as possible. (There were a lot of possibilities.) With not a lot of money, and perhaps not a lot of forethought, I started making my PCB assembly own tools.
+
+General Intent:
+
+I knew I wanted to make PCBs with SMT parts. I looked around and watched YouTube and Instagram and gradually pieced together what I wanted my PCB assembly process to be. I wanted to be able to quickly populate a PCB. I wanted to reflow the PCBs. I wanted to be able to program the microcontrollers at my bench without the need for my computer.
+
+So, I started by making a reflow hotplate. Then I made a portable programmer for ATMega and ATTiny chips. Then I created some SMD strips holders. Then I assembled a vacuum pen. Collectively, these DIY tools make up the majority of my electronics assembly workflow.
+
+ 
+
+ 
+
+What have you pwned so far:
+
+No pwning, but a whole lot of PCBs. I started with 4 SCREAMZY toys ; then came 10 holiday ornaments (with blinky LEDs and beepy noises); 250 of the 2020 eChallengeCoins; and another 50 holiday ornaments.
+
+I've made hundreds of PCBs and placed thousands of SMT parts in the past 9 months.
+
+ 
+
+
+
+
+Construction methods:
+
+#1: Soldering "Iron" Hotplate
+
+The first DIY tool was the Soldering "Iron" Hotplate. The current version looks a lot different from the original but the electronics are exactly the same - I just made a better case for it. It consists of a thrift store household iron; and Arduino or ESP8266, an OLED display, a thermistor, and a couple of buttons. The total cost was about $25US.
+
+The programming was easy since I had used the ESP8266 in my SCREAMZY project. My development toolchain of choice is a Virtual machine running Linux with VS Code and PlatformIO. I did write a little test program to read the thermistor value as various temperatures. This was used to populate the calibration table.
+
+GitLab: https://gitlab.com/bradanlane/hotplate
+
+Soldering Iron Hotplate V1: https://www.instagram.com/p/BwcznkWnaaj
+
+
+ 
+
+ 
+ 
+
+ 
+
+#2 Sonoff Iron Adapter
+
+Next, when I started thinking about attending my very first DEF CON, I had this notion I might need to reflow a PCB while in Vegas. (Yes, things changed and that became much less of a concern.) I knew every hotel room has an ironing board and iron. I just needed to create a controller. So, I took a Sonoff switch module since it was an ESP-1 and a relay module. I attached it to an extension cord. I then added a thermistor. That last bit required some hacking as the Sonoff does not expose the analog pin of the ESP-1. The code is much the same as the Soldering Iron Hotplate except without a display; I just used the existing button of the Sonoff to cycle through some preset values. The total cost was about $12US.
+
+ 
+
+GitLab: https://gitlab.com/bradanlane/hotplateadapter
+
+Sonoff Hotplate Adapter: https://www.instagram.com/p/B3xdDwKH51c
+
+
+ 
+
+ 
+
+ 
+
+#3 PortableISP Programmer
+
+Most of my projects started to use ATTiny and ATMega chips. There were plenty of USB programmers but I don't have my computer on my electronics bench and I wanted something small, fast, and battery powered. At the same time, I didn't want different solutions during development vs during assembly. I hacked together the code bases of a couple different open soruce projects and created the PortableISP programmer. It uses an off-the-shelf ESP32 TTGO unit which already had LiPo battery charger, a holder for an 18650, an OLED display, and plenty if GPIO pins. What it lacked were any buttons - other than the reset and program flashing buttons. However, the "boot" button does nothing once the EPS32 is running so I created a one-button UI for everything. The programmer does a lot of different things. It can act as a WiFi enabled AVRdude programmer. It Provides a UART-over-Telnet. And it can flash an MCU directly from its on-board SPIFFS storage. It's this last feature than makes this programmer invaluable. Over the past year, I've built a number of cables to accommodate different PCBs and chips. The total cost was about $15US.
+
+GitLab: https://gitlab.com/bradanlane/portableisp
+
+PortableISP Programer: https://www.instagram.com/p/B2km7STl_D-
+
+Batch programming microcontrollers: https://www.instagram.com/p/B-7i_AnjSrx
+
+Batch programming holiday ornaments: https://www.instagram.com/p/B5qjN2olzow
+
+
+ 
+ 
+
+ 
+
+#4&5 3D Printed SMT Strip Cartridges & Human-Powered Manual Pick-and-Place Vacuum Pen
+
+Using tweezers to place SMT parts was find for a single board but there was still the messy issue of dumping out parts and then tweezing them back up again. I saw a Hackaday post about laser cut acrylic parts, sandwiched together to make holders for SMT trips. I have a 3D printer so I adapted the idea. The holders follow the same idea as feeders on a pick and place machine. I have 8mm holders and 12 millimeter holders. I don’t go any bigger because the larger components are not easy to place with my pen. (If I changed anything about the cartridges, I'd make them a bit bigger so they would hold at least 500 passive components. As it is, they are tight.)
+
+The real winner here is the human-powered manual pick-and-place vacuum pen. I tried a small vacuum pump design but the honest truth is sticking the tube in my mouth is easy and accurate. Making the vacuum pen was incredibly easy. It's just a length of [oxygen] tubing, a disposable syringe, a blunt nose needle, and hot glue. I cut a small hole in the rubber stopper of the syringe and then added about 20mm of hot glue. I then applied a small amount of hot glue to the other end, while slowly rotating the tubing. This resulted in a hardened ball. I'm sure there is someone who will say its toxic (and it probably is) but it was quick and easy and it works. While you can buy curved blunt nose needles you can easily make then - using an old plumbers trick. You find some solid core wire that will just fit inside the needle, then, with the wire in the needle, you use small plyers to gradually bend the needle to the desired curve. While the needle will have small kinks, it will not collapse. The total cost was about $3US.
+
+Video of pick and place parts on PCBs using a carousel: https://www.instagram.com/p/CBbKNxyDZDW
+
+Using PnP Pen to populate a holiday ornament: https://www.instagram.com/p/B5qkeP-Fh4z
+
+How to make a curved needle: https://www.instagram.com/p/B6LS0ezHyzA
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+ 
+
+Links to related media:
+I included links with each of the DIY tools
+
+
+Is there anything else you need or want to tell us:
+If you want a chuckle, not everything I build worked as planned. (humor) Making a motorized turntable: https://www.instagram.com/p/Bwa4s1jBZ3r

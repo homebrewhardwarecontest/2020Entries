@@ -1,0 +1,42 @@
+Name/Handle:
+AcousticGirl
+
+Email address:
+
+
+Name of hardware:
+LED HypnoGoggles
+
+Category you are entering:
+Just For Fun
+
+Description/Summary:
+Cosplay goggles that pay all glory to the HypnoToad. A riff on Adafruit's steampunk goggles, mine are powered by a Trinket M0, the two NeoPixel rings have programmable animations (my favorite is the rainbow chase one). 
+
+General Intent:
+I made this to wear a little techno bling @ DragonCon (SciFi Fan Convention)
+
+What have you pwned so far:
+It's just decorative.
+
+Construction methods:
+I built this in a hotel room at DragonCon 2019. Wax paper is used to diffuse the LEDs, hot glue is used to secure the neopixel rings and wires, and the removable LiPo battery is held on with tape.
+
+What did you have to learn or teach yourself:
+I had never used NeoPixel rings before or worked in Circuit Python (since I am not a programmer). So the things I learned were the neopixel ring addressing schema and how to make basic programs and animations with Circuit Python.
+
+Usage:
+You plug the LiPo battery in and hold down the black button on the Trinket. This turns it on and runs the built in program. Due to lack of materials at the convention, it's fairly barebones.
+
+Specs:
+Adafruit Trinket M0, 500mAH LiPo battery, 2 x NeoPixel 16 LED rings
+
+Links to related media:
+Attached photos and video :)
+
+
+Is there anything else you need or want to tell us: 
+Future plans include adding on/off switch, animation switching button, and BLE module to control the animations/colors from my phone
+
+Do we need to keep your entry 'secret':
+Not really

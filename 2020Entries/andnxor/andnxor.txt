@@ -1,0 +1,54 @@
+*Name/Handle: @andnxor
+
+*Email address: 
+
+*Name of hardware: AND!XOR DC28 DEF CON IS CANCELED BADGE
+
+
+*Category you are entering: Just for fun
+
+
+*Description/Summary: TLDR: This year's badge provides bling, an embedded CTF text-based adventure, and a port of MyBASIC extended to the hardware to make it hackable. Underneath the hood we run Zephry RTOS on an STM32F412RET6.
+
+*General Intent: Good stuff. The badge is a hardware platform to learn basic, intermediate, and advanced hacking skills via engaging the CTF as well coding in BASIC while having wonderful LED bling goodness and dual screen animations + photos.
+
+
+*What have you pwned so far:
+This year's badge isn't a tool to be used for hacking. Instead it's a hackable badge, intended to be pwned. There is an embedded badge CTF as well as extending the hardware via MyBASIC. So really, it's a portable on the go blinged out CTF.
+
+
+*Construction methods: The artwork was designed in Illustrator, the PCB was designed in KiCAD, the Spacers and Faceplate were designed in Inkscape and originally 3d printed. Final production of the badge was done at MacroFab (Texas) and Faceplate/Spacers at Ponoko (Oakland). So from idea to finish, one can imagine it started with a STM dev board and jumper wires, then a prototype board, then 3d printed the STL files to ensure mechanically everything fit, then we had custom CNC mirrored acrylic done at Ponoko to diffuse and reflect the light from the LEDs. So overall it's a trio of Adobe for art, KiCAD for electronics, and Inkscape for the Mechanical (STL generation) aspect.
+
+*What did you have to learn or teach yourself:
+Mechanical engineering & 3D Printing at the onset. Also what kind of materials you can and can not mix to avoid corrosion (mixing PCB, spacers, screws, faceplates) vs (steel, stainless steel, aluminum, acrylic, FR4). Allowing for mechanical tolerances as well. Coding wise, we rolled our own encryption Zoom style (which was fun), and re-learning BASIC by implementing the MyBASIC interpreter then extending the language to badge hardware peripherals. We had the basic tools to prototype (e.g. dev boards, bread boards, jumper wires, KiCAD, 3D Printer). We didn't have to make any tools this year (fortunately). However we did have to do some research to avoid overly reverse engineering the protocols of the blackberry keyboard and build on the work done by @arturo182. We focused on design for manufacturability and assembly, so when everything comes together it just requires a screwdriver and USB-C cable. Also we have a cloud based service for running the CTF, which meant...the evil javascript... We all know javascript, but quickly purge it from our brains once a project is done, so using it was essentially learning it again.
+
+*Usage: (ELI5) On the back is where the batteries go in. Use your fingers. Insert 3 AAA batteries, then flip the power switch next to the battery holders. Turn the badge back over and you will see that a DEF CON IS CANCELED animation plays on the left screen while the right screen drops into a computer terminal. The terminal is the badge capture the flag challenge, there are over 20 hacker challenges one can complete to earn points on the scoreboard. It plays like a text based adventure game or MUD, where you type what you want to do; i.e. "look at PAYPHONE" or "hack USB_PORT wit RUBBER_DUCKY." To move around in the world, however, instead of using the traditional north south east west of the keys N S E W, we ergonomically use W A S D instead because we have upcycled black berry keyboards and it's just easier that way. Hitting SYM+Q quits the CTF and takes you to the main menu. From there you can choose Bling (animations and LED blink patterns), by hitting keys on the keyboard which change out the animations and LED patterns. The next menu item is MYBASIC which allows running of programs written in BASIC. There is also a MYBASIC editor which provides a lightweight development environment and code debugger on the badge. There is another application for decoding flags we have hidden outside of the badge, such as on twitter, website, voicemail recordings, bathroom walls, hoods of cop cars, and other places. They need to be decoded because each badge leverages unique public private key encryption. Typing in the generic flag will encrypt and then encode it into a 9 word moniker for the scoreboard. This ensures people can't share flags and points that are uniquely associated with a persons badge. Finally there is a settings section where one can change their player name, brightness, check battery level, and credits for seeing all the wonderful people who helped in the project this year. Also there's a smartphone app from Inspect AR. It allows us to do an augmented reality view of the badge. We programmed the project to have our CAD design files and taught it the shape of our badge. This allows a person to inspect PCB layers, traces, silk screen, components, etc without having to take it apart.
+For super detailed explanation... RTFM: https://hackaday.io/project/173627-andxor-dc28-badge/log/181339-rtfm
+*Specs:BOM...
+* PCBA: MacroFab 
+* Acrylic Faceplate: Ponoko
+* MCU: STM32F412RET6
+* Screen (OLED): ER-OLED0.96-1.3B-1655
+* Screen (TFT): ST7735 128x160
+* LEDS: APA-102C-NEW
+* Keyboard: Blackberry Q10 (BBKB)
+* Keyboard Connector: BM14B(0.8)-24DS-0.4V(53)
+* 8 MHz Crystal (STM32): X50328MSB2GI
+* USB-C: TYPE-C-31-M-12
+* Battery Holder: Keystone 1020
+
+*Links to related media:
+https://youtu.be/dY_oJL28QOw
+https://hackaday.io/project/173627-andxor-dc28-badge
+Also search twitter for "#mattdamon #badgelife"
+Badge Drops (i.e. free badge map) https://twitter.com/ANDnXOR/status/1289940130455724033
+
+
+*Is there anything else you need or want to tell us: We spent nights and weekends since May 2019 working on this, it's a way to escape the M-F/9-5 and just have fun learning something new and engineering something we hope others enjoy. Also we like doing this at scale for the social aspect. Doing that is NOT cheap, so we teamed up with some amazing sponsors (Urbane, Ponoko, Penguin, InspectAR) and did a limited pre-sale for Philanthropists to close the funding gap. This is what helps us make as many as we did. Our goal is to be able to give as many away for free as we can, which if you search on twitter for the hashtags mentioned above you will see free badge drops. Free badges for hackers, doing things to earn them in some way showing off their skill sets, lulz, or involving shenanigans in the spirit of keeping DEF CON weird. There's an amazing hacker community at hacker summer camp (which is camp covid this year), we hope this badge lets people have fun and introduces them to something new, learning more about hardware, and applying some of those higher stack hacking skill sets on hardware as well.
+
+
+*Do we need to keep your entry 'secret': No
+
+--
+-Hyr0n (AND!XOR)
+https://www.andnxor.com/

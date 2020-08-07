@@ -1,0 +1,56 @@
+Name/Handle:
+@mintynet
+
+Email address:
+
+Name of hardware:
+#value_pasta_auto
+
+Category you are entering:
+HARDCORE
+
+Description/Summary:
+At BlackHat EU 2018 Toyota released the PASTA (Portable Automotive Security Testbed with Adaptability) 'car in a case' auto. Which is a platform for automotive security testing.
+In 2019 Toyota released the hardware for sale at the price of $28500 for delivery at the end of the year. They later Open Sourced the design files and specification on Github.
+See below for more information.
+
+General Intent:
+I have created #value_pasta_auto from the design files using the same CAN bus message structure and formating.
+There are 4 ECU's gateway, body, chassis and powertrain.
+The 4 ECUs are built with teensy 4.0 microcontrollers on custom made PCBs. 
+There is then the ECU I/O boards for the inputs to the BODY ecu and the inputs to the POWERTRAIN ECU.
+The displays use 3 x NEXTION 3.5" serial based HMI devices.
+The whole device is built into a case just bigger than an A4 sheet of paper.
+The device is also connected to an Arduino based Bluetooth remote controlled car. The controls on the case will control the car.
+
+I have built a 'Car in a box' but that isnt very practical to take to international cons. This will make it easier to demonstrate automotive security issues at international conferences.
+
+What have you pwned so far:
+It's not for pwning but for show how pwning can be executed on a car but in a safe test environment.
+
+Construction methods:
+It has 2 custom PCBs from JLCPCB, 3d printing for the screen surrounds, custom wiring looms.
+
+What did you have to learn or teach yourself:
+Patience when trying to terminate lots of dupont cables.
+
+Usage:
+The car in a case simulates messages for most function of a real vehicle and then displays those functions on screen or controls the Bluetooth car. 
+Hackers/testers can inject messages on the different bus's to see if they can alter what the vehicle is doing.
+
+Specs:
+Cost of the device sub $600 where the original cost $28500.
+
+Links to related media:
+There is some pictures on my website www.mintynet.com/?page=hack or on my twitter @mintynet
+Video of the 'Car in a case' https://twitter.com/mintynet/status/1287826716904378368
+Video of the car but not controlled by the value_pasta_auto https://twitter.com/bigrinnyo/status/1278779382954418178
+I have included some pictures of the device with the email. Including the 'Car in a box' which this complements.
+
+Is there anything else you need or want to tell us:
+Im not too sure how I going to get the device through an airport when the world re opens but I will cross that brigde when it happens.
+
+Do we need to keep your entry 'secret':
+<We will host all entry forms on our public github, with names and email addresses scrubbed. We may also share links you provide, or pictures, via twitter, as we get closer to DEF CON. If you don't want us to, tell us here>
+
+homebrewhardwarecontest@gmail.com
