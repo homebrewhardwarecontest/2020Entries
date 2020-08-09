@@ -1,0 +1,76 @@
+Name/Handle:
+Aask, Lightning, and true
+
+Email address:
+internetofbatteries@gmail.com
+
+Name of hardware:
+The Internet of Batteries QUANTUM
+
+Category you are entering:
+Just For Fun
+
+Description/Summary:
+Welcome to the Internet of Batteries: DEF CON 28 Edition! We're back for our 2nd year after being told that the SAO standard "doesn't support" a battery back-powering the circuit on the VCC. Last year we successfully brought you a badge/add-on hybrid to support powering devices through both FEMALE and MALE headers, and this year we've iterated on that concept to bring you an updated model including a Cypress PSOC5, RGB, MORE LEDs, MORE colors, MORE capacity, MORE CLOUD, and an updated version of our WiFi mesh network to enable Safe Mode w/ Networking.
+
+This badge is compatable with SAO 1.69bis, though if plugged in to any other DC badge it could cause aliens to show up with ships that hang in the sky in much the same way bricks don't.
+
+Additionally, there is a WiFi Mesh Network (Itero) which powers the IoB. Through this network you can send broadcast messages to one big group chat, or sent PMs to up to 25 added devices. To scan for available nodes in the area, add other batteries to your "friends" list, and interact with group & private chat, you will need to connect to the Captive ArcadeTM. When connected, "Friends" and scanned nodes will show green.
+
+To view power usage statistics users connect to the Captive ArcadeTM on the ESP32 to view local battery power consumption and discharge stats.
+
+General Intent:
+Was made because EVERYBODY wants a battery on the Internet!
+
+What have you pwned so far:
+We PWN3D #badgelife after they told us "backpower isn't _supposed_ to work" by creating a badge / addon hybrid that can power MANY MANY devices at once. We have had it powering up to 12 addons at once!
+
+Construction methods:
+true designed the hardware, used a pick n place to set the chips and LEDs, hand cleaned them up and hand mounted the LED boards
+
+Stickers were made by me, Aask, by designing them, printing them, laminating them, and tuned my Cricut CNC cutter thing to cut out all of the stickers to a fine precision
+
+What did you have to learn or teach yourself:
+Had to learn a LOT. We've learned just how hard it is to design a bunch of artwork for boxes and get said boxes manufactured by an outside vendor. 
+
+Learned how to use a Cricut tool for making high precision sticker sheets out of whatever material we want
+
+Learned how to work as a team through the pandemic
+
+Learned how to make a NEW version esptool.exe in order to provide single-action firmware updates to ALL of our badges in the field
+
+Learned how to implement a PHP Google App Engine to host a website which can receive and respond to REST calls, and even embedded a game in it to give away batteries! (no takers yet)
+
+Usage:
+In badge mode, measures total current of add-ons and logs power consumption
+In add-on mode, measures its own current
+Is capable of back-powering a badge through the add-on header*
+RGB lights show useful information or fun light shows - Slider adjusts brightness
+Touch sensors to activate battery gauge, light shows (PARTY!), and backpower enabling modes
+Other indicator lights show power enable status and low battery**
+For 2020 we're in Safe Mode with Networking. The old WiFi mesh, Itero, has been upgraded to be more global... the IoB is IoT! ***
+
+
+* ALL RISKS OF BACKPOWERING ARE TAKEN BY YOU. NOT LIABLE FOR ANY FIRES, DAMAGE, INTERNET WORMS, BLACK HOLES, OR ANYTHING ELSE GOOD OR BAD AS A RESULT OF USING THIS FEATURE
+** Low battery indicator / shutoff mode not yet implemented. Will require MCU FW update to enable.
+*** Mesh network over Cloud is still in process
+
+Specs:
+ESP32 WiFi Battery Processor
+PSoC5 LP analog / lightshow / comms controller
+INA199 current sense, capable of 750mA peak sense
+Very rushed hardware and firmware engineered by total hacks
+
+Links to related media:
+https://batteryinter.net
+https://twitter.com/BatteryInternet
+https://twitter.com/WhiskeyPirates
+https://github.com/Aask42/IoB_DC28
+
+Is there anything else you need or want to tell us:
+We did this all over the internet and remotely from each other, and prototypes were completed only 2 weeks ago, production run completed through DEF CON 20 and was already in process once protos were in hand
+
+Everything was created and manufactured in house by Pirates!
+
+Do we need to keep your entry 'secret':
+Nope! Not a secret! 

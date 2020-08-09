@@ -1,0 +1,82 @@
+Name/Handle:
+
+Ben Gardiner / 0xstatic
+
+
+Name of hardware:
+
+Batteries Not Included
+
+
+Category you are entering:
+
+Just for Fun
+
+
+Description/Summary:
+
+A badge display, but powered by USB -- and upside down to make better use of free flat surfaces.
+
+
+
+General Intent:
+
+Good intentions. Blinken Lights.
+
+
+What have you pwned so far:
+
+We use it to have ambience in the workshop. And also for ‘dance parties’ for the kids.
+
+
+Construction methods:
+
+Starting with a few cheap usb 3.3V and 5V supply boards from Aliexpress. Remove the 0.1” headers and apply solder resist to the bottom to avoid shorts later.
+
+
+
+Remove battery clips or holders on the badge and glue the supply board into place with super glue. Solder the correct supply (5V or 3.3V) to the battery inputs.
+
+
+Here’s an example on @devoops waving-cat badge:
+
+
+
+Then mount all the easy to power badges on the bottom of a shelf. Add a usb hub with a power switch and usb cables for power:
+
+
+
+
+Enjoy blinken lights at the flip of a switch.
+
+
+What did you have to learn or teach yourself:
+
+This was a distraction more than anything. Applying previous skills acquired.
+
+
+Usage:
+
+Take your index finger and place it on the power switch of the USB hub. Apply sufficient pressure that the switch changes its position resulting in power being distributed to the badges all connected to usb via the USB power supplies you have mounted on them.
+
+
+Specs:
+
+3.14V of supply on some 4.2V of supply on others. YMMV
+
+
+Links to related media:
+
+
+Action video https://photos.app.goo.gl/WcD7i66JGeGtDtvF8
+
+
+Is there anything else you need or want to tell us:
+
+I hope someone finds the idea worth repeating.
+
+
+Do we need to keep your entry 'secret':
+
+No.
+

@@ -1,0 +1,114 @@
+Name/Handle:
+
+Ben Gardiner / 0xstatic
+
+
+Name of hardware:
+
+Bit-Banging PLC4TRUCKS Chirp Signals
+
+
+Category you are entering:
+
+Hardcore
+
+
+Description/Summary:
+
+An extension of the Truck Duck (https://github.com/TruckHacking/TruckDuckHardware) to add the ability to write PLC4TRUCKS signals. This enables interfacing with heavy vehicle trailer equipment. Most importantly trailer brake controllers for the PLC air launch challenge in the virtual car hacking village (but also security research w/e).
+
+
+Virtual Car Hacking Village Air Launch Setup:
+
+
+General Intent:
+
+Intentions both good and bad; as part of ongoing research into heavy vehicle trailers we needed a cheaper and easier way to connect to and interact with multiple trailer brake controllers. You can see some results of our research in CHV talk and CISA advisory below. We also wanted to make some fun to be had at DC 28 SM and a cheap and accessible tool makes a virtual car hacking village bench setup easy.
+
+
+What have you pwned so far:
+
+We are using this tool as part of ongoing research into heavy vehicle trailers. There are a couple public examples of our work so far.
+
+
+Our DC 28 SM Talk: https://www.carhackingvillage.com/speaker-bios#pth2
+
+A CISA advisory about a PLC remote read issue: https://us-cert.cisa.gov/ics/advisories/icsa-20-219-01
+
+
+We have used it also to launch NERF air darts from custom 3d-printed ‘cactus’ heads which we mounted to the exhaust ports of trailer brake controllers. Brake controllers use these ports on ABS events to shunt air from the supply lines and control lines to, among other things, avoid brake lockup.
+
+
+
+We have bench setups with pressurized air and this truck duck modification and have them available in the virtual car hacking village CTF.
+
+
+Construction methods:
+
+The Truck Duck power supply has an odd characteristic where it significantly attenuates any PLC signals where it is connected. If you power the truck duck from the beaglebone 5V jack then you can simply add a 0.1uF capacitor between a screw terminal for connection to the vehicle power line and the P9.29 pin where the PLC signal will be synthesized by bitbanging software (the bitbanging uses a naive approach but is non-trivial see the build log below for details).
+
+
+
+The truck duck is meant to be powered from vehicle 12V for convenience. And the vehicle 12V is where the PLC signals are. So something needed to be done about the signal attenuation.
+
+
+Trial and error showed that about 40” of wire between the PS and the point of signal injection would do the trick. So in addition to the 0.1uf capacitor mod above, extra wire was added between the power input and the power pin of the truck duck. Just coiled it up there ?? 
+
+
+
+
+
+Wire ‘Inductor’ on the 1.5 YEET Version of Truck Duck
+
+
+
+Wire ‘Inductor’ on the original Truck Duck Version:
+
+
+What did you have to learn or teach yourself:
+
+I had never done a PWM before , only knew it was theoretically possible. It was a pleasant surprise to find out that the dumbest PWM possible could beat the hard-to-source PLC diagnostic adapters!
+
+I also had to learn about high-pressure air hoses. Did you know that the best way to seal up these fittings is with pipe dope usually used on gas lines? Now you do.
+
+Plus all that domain-specific knowledge on trailer brake controllers ;)
+
+
+Usage:
+
+The tool is open source; the command `j1708send.py --interface=plc` will request the beaglebone PRU to synthesize PLC frames. If you send the _right command_ (hint: a ECU reset) then the NERF darts launch!
+
+
+See https://github.com/TruckHacking/plc4trucksduck for more details.
+
+
+Specs:
+
+1x 0.1uf 100V ceramic 0805 capacitor on the power pin
+
+1x flying lead from P9.29 to the cap
+
+1x trace cut on power input
+
+42” of wire to get the power supply to stop swallowing the PLC signals
+
+
+Links to related media:
+
+Build log for PLC synthesis: https://drive.google.com/file/d/1SiCcllqVbDEZ1Uqe8CzyyHxFLXt53ukV/view?usp=sharing
+
+
+vCHV twitch stream for PLC bench: https://www.twitch.tv/throwawaythingsno0001
+
+
+Truck ducks are available for login on vchc platform: virtual.carhackingvillage.com
+
+
+Is there anything else you need or want to tell us:
+
+On the theme of discovery: we really didn’t know if bitbanging a PLC signal for sending to trailer brake controllers was even possible but we guessed it would be and set out anyways. We discovered a few things in this endeavour including both some undocumented BBB PRU cycle a counts and that the naive approach to PWM would event work.
+
+
+Do we need to keep your entry 'secret':
+
+No

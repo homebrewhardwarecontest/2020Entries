@@ -1,0 +1,123 @@
+Name/Handle:
+
+AndrewMohawk (Andrew MacPherson)
+
+
+Name of hardware:
+
+Aurora
+
+
+Category you are entering:
+
+Fun, Useful, Projects that I actually use all the time!
+
+
+Description/Summary:
+
+
+A full example can be found here: https://www.youtube.com/watch?v=6tA8m_bsXxs&feature=youtu.be
+
+
+
+Aurora is an ambient light “projector” for your TV. Unlike other ambient light solutions, Aurora takes the HDMI input feed, defines a border (usually 10% of the image -- but configurable) and translates the colors from that feed to a series of LEDs mounted on the back of your television. This enables Aurora to closely match the colors from the edge of the image on your TV with the light that is diffused off the wall. This creates a more immersive experience while watching TV and also creates less contrast so keeps your eyes happy!
+
+
+It is much better to see in person, but here is a picture which provides some context:
+
+
+
+
+And also here is a very short video showing it: https://www.youtube.com/watch?v=bbMRzN9Zi4k
+
+
+I've always wanted an ambient light for my TV, years ago I had one that used an arduino and a PC, but the setup was less than ideal. The ambient light was laggy, you had to have media go through the computer and you needed this whole setup for it before you could enjoy it. I've also kickstarted not one, but two, a few years ago that have both very effectively stolen my money without giving me any working hardware :( This year Philips announced the Philips hue sync box, oh boy did it sound like what I wanted, https://www.philips-hue.com/en-us/p/hue-play-hdmi-sync-box-/046677555221. It had it all, it even came in a shiney box! But $200+, ouch, luckily they knew I was a sucker for blinky lights, and I ordered it anyway. 
+
+
+When I got it, it was such a let down, the main problem being that first you need to get the lights added to your homehub, then with the sync box, then get app working for your phone, fuckit, I've done it, its time to go. Fired up some RGB tests from youtube and I was like "well its almost right, but not exactly, why??", turns out the lights (and all the philips hue lights) only do a single colour. So if you have multiple colours on the TV, its averaging or picking one with the most hue and dropping that. Works fine on simple things, but really this is *not* the experience I want. Next I noticed all my sound was lower quality, and I couldnt figure out why, turns out the box was sending its own EDID instead of my TVs so I was getting lower quality audio. I was so angry, $200 dollars and it doesnt work! (tbh this was also my fault, I was convinced by the videos and didnt look close enough)
+
+
+Screw it, building my own. First thing I did was figure out how to get an HDMI splitter that worked and didn't ruin any of the delicious sound or image quality I was getting. I tried initially just plugging the HDMI into a capture card to record some video, and I saw netflix DRM'd me? what the hell? So I had to learn about decimating the signal and how to get around it. Lucky for me I found a nice HDMI splitter that downscaled the one signal (to my Pi) and used the EDID of the default device (my tv) so I could get 1024x68 signal on the capture card and full 4K HD + Dolby sound on the TV! 
+
+
+Next I had to figure out some python to change the LEDs and wondered how fast I could do it, turns out, really fast, using just the GPIO pins I could get above 60fps for my 300 LEDs, perfect! 
+
+
+After this I started coding some openCV with Python, first thing I had to do was get the frames, weirdly this worked pretty well. Next I had to cut out a "border" of the image. So essentially for each frame I take a 10% border of the left,right,top and bottom of the image I get in, brilliant! Now I have to downscale that from however many pixels to however many LEDs are on that side of the TV, ie if its 1024 pixels at the top of the image, and I have 100 LEDs at the top, then I need to cut it up into blocks of ~102px. Okay great, next I had to average the block out to get the average colour for it, so that I could then assign that RGB to the pixel and have it display!
+
+
+This was a pretty long process as there were a lot of hiccoughs, mainly that I simply didnt know openCV or how it worked, I didnt know how to scale colour well, or which things cost a lot more in processing. I also ran into some trouble where while I get a full image, it has black bars where movies are not made for the same size screen I have. So I had to do some cropping of black until I had an image (tbh stackoverflow gave me a great solution!). I also had to say that if there was no image (ie, nothing was playing) or the cropped image was 1x1 pixel (it was black), turn off the LEDs.
+
+
+This worked even better than expected because it meant I could leave this running indefinitely and when I turned the TV on, it just worked, and when I turned the TV off they just turned off! No App, No setup, just works!
+
+
+
+General Intent:
+
+The intent was to build something that worked how *I* wanted it to work, that was cheaper than the devices I could buy, and that required as little setup as possible! Its nice because its better for your eyes and it makes it such an immersive experience (definitely check out the video of watching a movie!)
+
+
+
+What have you pwned so far:
+
+DRM, fuck that noise, I pay for the signal and I want it! Having the splitter handle EDID on the channel meant I could get the image without worrying about any of that detection since the TV<->Set Top box (in my case NVidia Shield, but could be AppleTV or anything else too). Sure I miss some resolution (but I dont want it anyway since im downscaling so much to the LEDs) and I dont get the special audio that defines where objects are (but again, not using that at all)! 
+
+
+Also I guess "pwned" the Philips Hue box, cause its way better than the one they offer! So much so that I requested a refund and am sending mine back!
+
+
+Construction methods:
+
+Unfortunately I dont have a 3D printer or know (right now), how to build a PCB nicely, so I DIY'd my own "HAT" for my pi4 that connects a powersource in and distributes some to the Pi4 to run it and some to the LED strips! But essentially, once the software is on the Pi, you just connect the JST connectors -- power in to device, JST for power to some of the strip, and JST to power and data for another connector.
+
+
+What did you have to learn or teach yourself:
+
+Lots of OpenCV, honestly, everytime I touch that project I am impressed, its phenomenal! The ability to do averages, slices, all kinds of madness in such an easy way is superb. Also had to learn a bit about LEDs, like, they take a *lot* of Amps to run, aint no wall wort going to work for this. Also some stuff on HDMI, like that EDID is a thing, and that there is a lot more than just video and sound that is sent on the wire!
+
+
+Usage:
+
+Really you just turn on your TV and enjoy it! No need to set up anything, as long as the script is running (when I release it, it will just be a service) it works! Otherwise just start the script "pixelcam.py" :)
+
+
+Specs:
+
+For OpenCV I'm taking each from then doing the following:
+
+- using numpy to look for thresholds on the image to Autocrop for each frame. If its 1x1 then turn off the LEDs and bail
+
+- making 4 slices from the frame to do top,bottom,left right that are a percentage of the image returned from the above
+
+- For each image resize with interpolation set to cv2.INTER_AREA to get it to do the colour averaging for me 
+
+- Take each of these, split into blocks that represent each pixel, pull the RGB and then send it with the neopixel adafruit library to the right spots
+
+
+My LED strip is cut to the following dimensions:
+
+- Left+right: 49 LEDs
+
+- Top+bottom: 85 LEDs 
+
+
+I get about 22fps at the moment, but will still be working on optimising it! 
+
+
+Links to related media:
+
+https://www.youtube.com/watch?v=bbMRzN9Zi4k
+
+https://www.youtube.com/watch?v=6tA8m_bsXxs&feature=youtu.be
+
+
+
+Is there anything else you need or want to tell us:
+
+The things I want to add are a webserver and a wifi network so you can connect to a page to configure it, instead of having to count the LEDs you can just keep changing values and it will light up the LEDs on the tv so you can pick the right number. I'd like to also add something that loads particular modules, so say I might want to have something that reads in a USB microphone and then outputs the sound to LEDs so if I'm listening to music I can have the LEDs do that! Additional things could be that it changes the colouring to be inverted to give HIGH contrast, or it only highlights certain colours for other visual effects 
+
+
+Do we need to keep your entry 'secret':
+
+Nope 
